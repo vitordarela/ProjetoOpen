@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.senai.sc</groupId>
+	<artifactId>sgn2</artifactId>
+	<name>sgn2</name>
+	<version>2.33.3-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<organization>
+		<name>Sistema FIESC</name>
+		<url>http://www.fiescnet.com.br/</url>
+	</organization>
+
+	<modules>
+		<module>sgn2-core-acompanhamentoPedagogico</module>
+		<module>sgn2-core-administracao</module>
+		<module>sgn2-core-assistenciaEstudantil</module>		
+		<module>sgn2-core-avaliacaoSatisfacao</module>
+		<module>sgn2-core-bolsasFinanciamento</module>
+		<module>sgn2-core-common</module>
+		<module>sgn2-core-diarioClasse</module>
+		<module>sgn2-core-execucaoEducacao</module>
+		<module>sgn2-core-eventoTecnico</module>
+		<module>sgn2-core-gerenciamentoRecurso</module>
+		<module>sgn2-core-integracao</module>
+		<module>sgn2-core-pessoa</module>
+		<module>sgn2-core-colaborador</module>
+		<module>sgn2-core-produtoCustomizado</module>
+		<module>sgn2-core-projetoProduto</module>
+		<module>sgn2-core-registroDemanda</module>
+		<module>sgn2-core-processoSeletivo</module>
+		<module>sgn2-core-matricula</module>
+		<module>sgn2-core-certificacao</module>
+		<module>sgn2-core-faturamentoFinanceiro</module>
+		<module>sgn2-core-rematricula</module>
+		<module>sgn2-core-estagioTcc</module>
+		<module>sgn2-core-satt</module>
+		<module>sgn2-core-scop</module>
+		<module>sgn2-core-stt</module>
+		<module>sgn2-core-webservices</module>
+		<module>sgn2-web</module>
+		<module>sgn2-ear</module>
+	</modules>
+
+	<properties>
+		<!-- Configuration -->
+		<java.version>1.7</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- Plugin Versions -->
+		<maven.release.plugin.version>2.4</maven.release.plugin.version>
+		<maven.compiler.plugin.version>2.5.1</maven.compiler.plugin.version>
+		<maven.surefire.plugin.version>2.5</maven.surefire.plugin.version>
+		<!-- SENAI -->
+		<senai.bom.eap.version>2.0.12-SNAPSHOT</senai.bom.eap.version>
+		<senai.commons.version>2.0.22-SNAPSHOT</senai.commons.version>
+		<senai.entity.version>2.4.15-SNAPSHOT</senai.entity.version>
+		<!-- Versions -->
+		<ejb.version>3.0</ejb.version>
+	</properties>
+
+	<scm>
+		<url>http://svn.sc.senai.br/sgn2/trunk</url>
+		<connection>scm:svn:http://svn.sc.senai.br/sgn2/trunk</connection>
+		<developerConnection>scm:svn:http://svn.sc.senai.br/sgn2/trunk</developerConnection>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<url>http://darwin.sc.senai.br/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus</id>
+			<name>Snapshot Repository</name>
+			<url>http://darwin.sc.senai.br/nexus/content/repositories/snapshots</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>br.senai.sc</groupId>
+				<artifactId>senai-bom-eap</artifactId>
+				<version>${senai.bom.eap.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- SENAI -->
+		<dependency>
+			<groupId>br.senai.sc</groupId>
+			<artifactId>senai-entity</artifactId>
+			<version>${senai.entity.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>br.senai.sc</groupId>
+			<artifactId>senai-common</artifactId>
+			<version>${senai.commons.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- JBoss Seam -->
+		<dependency>
+			<groupId>org.jboss.seam</groupId>
+			<artifactId>jboss-seam</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- EJB -->
+		<dependency>
+			<groupId>javax.ejb</groupId>
+			<artifactId>ejb-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- HIBERNATE -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <scope>provided</scope>
+        </dependency>		
+		<!-- Tests -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>sgn2</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<maxmem>512m</maxmem>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>${maven.release.plugin.version}</version>
+				<configuration>
+					<tagBase>http://svn.sc.senai.br/sgn2/tags/versions/</tagBase>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<preparationGoals>clean install</preparationGoals>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="Atualizador Maven"
+            visible="true"
+            id="AtualizadorPlugIn.actionSet">
+         <menu
+               label="Utilitários SGN2"
+               id="sampleMenu">
+            <separator
+                  name="sampleGroup">
+            </separator>
+         </menu>
+         <action
+               label="Atualizador Maven"
+               icon="icons/atualizar.gif"
+               class="atualizadorplugin.actions.SampleAction"
+               tooltip="Atualizador Maven"
+               menubarPath="sampleMenu/sampleGroup"
+               toolbarPath="sampleGroup"
+               id="atualizadorplugin.actions.SampleAction">
+         </action>
+      </actionSet>
+   </extension>
+
+</plugin>
